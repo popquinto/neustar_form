@@ -42,6 +42,34 @@
 		        </div>
 		    </div>
 		</form>
+		<div>
+			<span class="d-block p-2 bg-dark text-white">Want to find a DNS/Hostname?</span>
+			<form class="form-horizontal">
+			    <div class="form-group">
+			        <label for="inputDnsSearch" class="">Please write the DNS/Hostname you are looking for</label>
+			        <div class="col-sm-10">
+			            <input type="text" style="width:20%; margin-bottom: 1%;" class="form-control" id="inputDnsSearch" placeholder="Hostname">
+			        </div>
+			        <div class="form-group">
+			        <div class="col-sm-offset-2 col-sm-10">
+			            <button type="button" class="btn btn-dark" onclick="search()">Search</button>
+			        </div>
+			    </div>
+			    </div>
+			</form>
+			<!--<table class="table" id="tableSearch" style="width:100%">
+				<thead class="thead-dark">
+				  <tr>
+				    <th scope="col">Hostname</th>
+				    <th scope="col">IP</th>
+				  </tr>
+				 </thead>
+			 	<tbody>
+				  
+				<tbody>
+			</table>-->
+
+		</div>
 
     </body>
 

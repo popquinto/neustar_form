@@ -43,5 +43,23 @@ class DatabaseManager{
 			return '{"isSuccessful":"0", "status":"Error"}';
 		}
 	}
+
+	public function searchHostname(){
+		try {			
+			$database = new DatabaseSqlite;
+			//First we ask if the same hostname is already inserted
+			$database->query('SELECT * FROM dns_records WHERE hostname=:hostname');
+			$database->bind(':hostname', $this->hostname);
+			$rows = $database->resultset();
+			if (empty($rows)){//If the hostname provided does not exist then
+				return '{"isSuccessful":"1", "status":"Hostname not found"}'; //I set status=Approved to handle in js
+			}
+			else{ //if it exists in DB
+				return json_encode(array("Result"=>$rows, "status"=>"Hostname found")); //I set status=Denied to handle in js
+			}
+		} catch (Exception $e) {
+			return '{"isSuccessful":"0", "status":"Error"}';
+		}
+	}
 }
 
